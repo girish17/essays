@@ -1,168 +1,167 @@
-<!DOCTYPE html>
-<html lang="en"><head><style type="text/css">pre { margin: 1px }
-			.fmt0 {  } /* normal */
-			.fmt1 {  } /* background */
-			.fmt2 { background-color: #ffcabf; } /* line:error */
-			.fmt3 { background-color: #fffbbf; } /* line:warning */
-			.fmt4 { background-color: #bfd6ff; } /* line:badbox */
-			.fmt5 {  } /* line:bookmark */
-			.fmt6 {  } /* line:bookmark0 */
-			.fmt7 {  } /* line:bookmark1 */
-			.fmt8 {  } /* line:bookmark2 */
-			.fmt9 {  } /* line:bookmark3 */
-			.fmt10 {  } /* line:bookmark4 */
-			.fmt11 {  } /* line:bookmark5 */
-			.fmt12 {  } /* line:bookmark6 */
-			.fmt13 {  } /* line:bookmark7 */
-			.fmt14 {  } /* line:bookmark8 */
-			.fmt15 {  } /* line:bookmark9 */
-			.fmt16 { color: #555580; } /* magicComment */
-			.fmt17 { background-color: #a8cf83; } /* commentTodo */
-			.fmt18 { color: #808080; } /* comment */
-			.fmt19 { color: #800000; } /* keyword */
-			.fmt20 { font-weight: 700;color: #0095ff; } /* extra-keyword */
-			.fmt21 { color: #808000; } /* math-keyword */
-			.fmt22 { border-bottom: 1px solid #0000ff;color: #0000ff; } /* link */
-			.fmt23 { font-weight: 700;color: #0055ff; } /* align-ampersand */
-			.fmt24 { color: #008080; } /* verbatim */
-			.fmt25 { color: #800000; } /* sweave-block */
-			.fmt26 { font-weight: 700;color: #0095ff; } /* sweave-delimiter */
-			.fmt27 { color: #800000; } /* pweave-block */
-			.fmt28 { font-weight: 700;color: #0095ff; } /* pweave-delimiter */
-			.fmt29 { color: #804000; } /* picture */
-			.fmt30 { color: #c06000; } /* picture-keyword */
-			.fmt31 { font-weight: 700;background-color: #ffff7f; } /* braceMatch */
-			.fmt32 { font-weight: 700;color: #ffff7f;background-color: #c00000; } /* braceMismatch */
-			.fmt33 { color: #000000;background-color: #ffef0b; } /* search */
-			.fmt34 { color: #008000; } /* numbers */
-			.fmt35 { color: #509600; } /* math-delimiter */
-			.fmt36 { color: #ff0000; } /* text */
-			.fmt37 { color: #ff0088; } /* escapeseq */
-			.fmt38 { border-bottom: 1px dashed #ff0000; } /* spellingMistake */
-			.fmt39 { border-bottom: 1px dashed #008000; } /* wordRepetition */
-			.fmt40 { border-bottom: 1px dashed #008000; } /* wordRepetitionLongRange */
-			.fmt41 { text-decoration: line-through; } /* badWord */
-			.fmt42 { border-bottom: 1px dashed #000080; } /* grammarMistake */
-			.fmt43 { background-color: #00ffa0; } /* grammarMistakeSpecial1 */
-			.fmt44 { background-color: #00c0ff; } /* grammarMistakeSpecial2 */
-			.fmt45 { background-color: #00ff00; } /* grammarMistakeSpecial3 */
-			.fmt46 { background-color: #c8ff61; } /* grammarMistakeSpecial4 */
-			.fmt47 { background-color: #ffbf9f; } /* latexSyntaxMistake */
-			.fmt48 { font-style: italic;color: #0000ff; } /* temporaryCodeCompletion */
-			.fmt49 { color: #000080; } /* environment */
-			.fmt50 { color: #008000; } /* referencePresent */
-			.fmt51 { border-bottom: 1px dashed #008000;color: #008000; } /* referenceMissing */
-			.fmt52 { border-bottom: 1px dashed #800080;color: #800080; } /* referenceMultiple */
-			.fmt53 { color: #008000; } /* citationPresent */
-			.fmt54 { border-bottom: 1px dashed #008000;color: #008000; } /* citationMissing */
-			.fmt55 { color: #008000; } /* packagePresent */
-			.fmt56 { border-bottom: 1px dashed #008000;color: #008000; } /* packageMissing */
-			.fmt57 { font-weight: 700;color: #000000; } /* structure */
-			.fmt58 { background-color: #eeeeff; } /* current */
-			.fmt59 { background-color: #b2d8ff; } /* selection */
-			.fmt60 { background-color: #ffaaaa; } /* replacement */
-			.fmt61 { text-decoration: line-through;background-color: #ffaaaa; } /* diffDelete */
-			.fmt62 { background-color: #aaffaa; } /* diffAdd */
-			.fmt63 { background-color: #ffff50; } /* diffReplace */
-			.fmt64 { background-color: #ddffcc; } /* previewSelection */
-			.fmt65 { font-weight: 700;color: #0095ff; } /* txs-test */
-			.fmt66 { font-weight: 700; } /* txs-test-summary */
-			.fmt67 { color: #008000; } /* txs-test-pass */
-			.fmt68 { color: #c00000; } /* txs-test-fail */
-			.fmt69 { color: #ea8800; } /* txs-test-warn */
-			.fmt70 { color: #808000; } /* txs-test-qdebug */
-			.fmt71 { color: #ffa500; } /* dtx:guard */
-			.fmt72 { font-weight: 700;color: #006400; } /* dtx:macro */
-			.fmt73 { color: #008080; } /* dtx:verbatim */
-			.fmt74 { color: #cc8100; } /* dtx:specialchar */
-			.fmt75 { font-weight: 700;color: #10c010; } /* dtx:commands */
-			.fmt76 { color: #b200ff; } /* lua:keyword */
-			.fmt77 { color: #808080; } /* lua:comment */
-			.fmt78 { color: #804000; } /* asymptote:block */
-			.fmt79 { color: #800080; } /* asymptote:keyword */
-			.fmt80 { color: #808000; } /* asymptote:type */
-			.fmt81 { color: #008000; } /* asymptote:numbers */
-			.fmt82 { color: #000080; } /* asymptote:string */
-			.fmt83 { color: #808080; } /* asymptote:comment */
-			.fmt84 { color: #808080; } /* qtscript:comment */
-			.fmt85 { color: #008000; } /* qtscript:string */
-			.fmt86 { color: #000080; } /* qtscript:number */
-			.fmt87 { color: #808000; } /* qtscript:keyword */
-			.fmt88 { color: #800000; } /* qtscript:txs-variable */
-			.fmt89 { font-style: italic; } /* qtscript:txs-function */
-			.fmt90 { background-color: #ffff7f; } /* preedit */
-		</style></head><body><pre>	 </pre>
-		<pre>	<span class="fmt18">%opening</span> </pre>
-		<pre>	<span class="fmt19">\title</span>{Can computers think?} </pre>
-		<pre>	<span class="fmt19">\author</span>{M. Girish} </pre>
-		<pre>	<span class="fmt19">\documentclass</span>[a4paper]{<span class="fmt55">article</span>} </pre>
-		<pre>	<span class="fmt19">\usepackage</span>[none]{<span class="fmt55">hyphenat</span>} </pre>
-		<pre>	<span class="fmt19">\usepackage</span>{<span class="fmt55">graphicx</span>} </pre>
-		<pre>	<span class="fmt19">\usepackage</span>{<span class="fmt55">wrapfig</span>} </pre>
-		<pre>	<span class="fmt20">\begin{</span><span class="fmt20"><span class="fmt49">document</span></span><span class="fmt20">}</span> </pre>
-		<pre>	 </pre>
-		<pre>	<span class="fmt19">\maketitle</span> </pre>
-		<pre>	 </pre>
-		<pre>	<span class="fmt20">\begin{</span><span class="fmt20"><span class="fmt49">abstract</span></span><span class="fmt20">}</span> </pre>
-		<pre>	Thinking is a non-trivial process to make a computer develop one. In its true essence thinking is what a <span class="fmt19">\textit</span>{being} is capable of. A sophisticated process which involves past knowledge </pre>
+<html><head><style type="text/css">pre { margin: 1px }
+.fmt0 {  } /* normal */
+.fmt1 {  } /* background */
+.fmt2 { background-color: #ffcabf; } /* line:error */
+.fmt3 { background-color: #fffbbf; } /* line:warning */
+.fmt4 { background-color: #bfd6ff; } /* line:badbox */
+.fmt5 {  } /* line:bookmark */
+.fmt6 {  } /* line:bookmark0 */
+.fmt7 {  } /* line:bookmark1 */
+.fmt8 {  } /* line:bookmark2 */
+.fmt9 {  } /* line:bookmark3 */
+.fmt10 {  } /* line:bookmark4 */
+.fmt11 {  } /* line:bookmark5 */
+.fmt12 {  } /* line:bookmark6 */
+.fmt13 {  } /* line:bookmark7 */
+.fmt14 {  } /* line:bookmark8 */
+.fmt15 {  } /* line:bookmark9 */
+.fmt16 { color: #555580; } /* magicComment */
+.fmt17 { background-color: #a8cf83; } /* commentTodo */
+.fmt18 { color: #808080; } /* comment */
+.fmt19 { color: #800000; } /* keyword */
+.fmt20 { font-weight: 700;color: #0095ff; } /* extra-keyword */
+.fmt21 { color: #808000; } /* math-keyword */
+.fmt22 { border-bottom: 1px solid #0000ff;color: #0000ff; } /* link */
+.fmt23 { font-weight: 700;color: #0055ff; } /* align-ampersand */
+.fmt24 { color: #008080; } /* verbatim */
+.fmt25 { color: #800000; } /* sweave-block */
+.fmt26 { font-weight: 700;color: #0095ff; } /* sweave-delimiter */
+.fmt27 { color: #800000; } /* pweave-block */
+.fmt28 { font-weight: 700;color: #0095ff; } /* pweave-delimiter */
+.fmt29 { color: #804000; } /* picture */
+.fmt30 { color: #c06000; } /* picture-keyword */
+.fmt31 { font-weight: 700;background-color: #ffff7f; } /* braceMatch */
+.fmt32 { font-weight: 700;color: #ffff7f;background-color: #c00000; } /* braceMismatch */
+.fmt33 { color: #000000;background-color: #ffef0b; } /* search */
+.fmt34 { color: #008000; } /* numbers */
+.fmt35 { color: #509600; } /* math-delimiter */
+.fmt36 { color: #ff0000; } /* text */
+.fmt37 { color: #ff0088; } /* escapeseq */
+.fmt38 { border-bottom: 1px dashed #ff0000; } /* spellingMistake */
+.fmt39 { border-bottom: 1px dashed #008000; } /* wordRepetition */
+.fmt40 { border-bottom: 1px dashed #008000; } /* wordRepetitionLongRange */
+.fmt41 { text-decoration: line-through; } /* badWord */
+.fmt42 { border-bottom: 1px dashed #000080; } /* grammarMistake */
+.fmt43 { background-color: #00ffa0; } /* grammarMistakeSpecial1 */
+.fmt44 { background-color: #00c0ff; } /* grammarMistakeSpecial2 */
+.fmt45 { background-color: #00ff00; } /* grammarMistakeSpecial3 */
+.fmt46 { background-color: #c8ff61; } /* grammarMistakeSpecial4 */
+.fmt47 { background-color: #ffbf9f; } /* latexSyntaxMistake */
+.fmt48 { font-style: italic;color: #0000ff; } /* temporaryCodeCompletion */
+.fmt49 { color: #000080; } /* environment */
+.fmt50 { color: #008000; } /* referencePresent */
+.fmt51 { border-bottom: 1px dashed #008000;color: #008000; } /* referenceMissing */
+.fmt52 { border-bottom: 1px dashed #800080;color: #800080; } /* referenceMultiple */
+.fmt53 { color: #008000; } /* citationPresent */
+.fmt54 { border-bottom: 1px dashed #008000;color: #008000; } /* citationMissing */
+.fmt55 { color: #008000; } /* packagePresent */
+.fmt56 { border-bottom: 1px dashed #008000;color: #008000; } /* packageMissing */
+.fmt57 { font-weight: 700;color: #000000; } /* structure */
+.fmt58 { background-color: #eeeeff; } /* current */
+.fmt59 { background-color: #b2d8ff; } /* selection */
+.fmt60 { background-color: #ffaaaa; } /* replacement */
+.fmt61 { text-decoration: line-through;background-color: #ffaaaa; } /* diffDelete */
+.fmt62 { background-color: #aaffaa; } /* diffAdd */
+.fmt63 { background-color: #ffff50; } /* diffReplace */
+.fmt64 { background-color: #ddffcc; } /* previewSelection */
+.fmt65 { font-weight: 700;color: #0095ff; } /* txs-test */
+.fmt66 { font-weight: 700; } /* txs-test-summary */
+.fmt67 { color: #008000; } /* txs-test-pass */
+.fmt68 { color: #c00000; } /* txs-test-fail */
+.fmt69 { color: #ea8800; } /* txs-test-warn */
+.fmt70 { color: #808000; } /* txs-test-qdebug */
+.fmt71 { color: #ffa500; } /* dtx:guard */
+.fmt72 { font-weight: 700;color: #006400; } /* dtx:macro */
+.fmt73 { color: #008080; } /* dtx:verbatim */
+.fmt74 { color: #cc8100; } /* dtx:specialchar */
+.fmt75 { font-weight: 700;color: #10c010; } /* dtx:commands */
+.fmt76 { color: #b200ff; } /* lua:keyword */
+.fmt77 { color: #808080; } /* lua:comment */
+.fmt78 { color: #804000; } /* asymptote:block */
+.fmt79 { color: #800080; } /* asymptote:keyword */
+.fmt80 { color: #808000; } /* asymptote:type */
+.fmt81 { color: #008000; } /* asymptote:numbers */
+.fmt82 { color: #000080; } /* asymptote:string */
+.fmt83 { color: #808080; } /* asymptote:comment */
+.fmt84 { color: #808080; } /* qtscript:comment */
+.fmt85 { color: #008000; } /* qtscript:string */
+.fmt86 { color: #000080; } /* qtscript:number */
+.fmt87 { color: #808000; } /* qtscript:keyword */
+.fmt88 { color: #800000; } /* qtscript:txs-variable */
+.fmt89 { font-style: italic; } /* qtscript:txs-function */
+.fmt90 { background-color: #ffff7f; } /* preedit */
+</style></head><body><pre>	 </pre>
+<pre>	<span class="fmt18">%opening</span> </pre>
+<pre>	<span class="fmt19">\title</span>{Can computers think?} </pre>
+<pre>	<span class="fmt19">\author</span>{M. Girish} </pre>
+<pre>	<span class="fmt19">\documentclass</span>[a4paper]{<span class="fmt55">article</span>} </pre>
+<pre>	<span class="fmt19">\usepackage</span>[none]{<span class="fmt55">hyphenat</span>} </pre>
+<pre>	<span class="fmt19">\usepackage</span>{<span class="fmt55">graphicx</span>} </pre>
+<pre>	<span class="fmt19">\usepackage</span>{<span class="fmt55">wrapfig</span>} </pre>
+<pre>	<span class="fmt20">\begin{</span><span class="fmt20"><span class="fmt49">document</span></span><span class="fmt20">}</span> </pre>
+	<pre>	 </pre>
+	<pre>	<span class="fmt19">\maketitle</span> </pre>
+	<pre>	 </pre>
+	<pre>	<span class="fmt20">\begin{</span><span class="fmt20"><span class="fmt49">abstract</span></span><span class="fmt20">}</span> </pre>
+		<pre>	Thinking is a non-trivial process. In its true essence <span class="fmt40">thinking</span> is what a <span class="fmt19">\textit</span>{being} is capable of. A sophisticated process which involves past knowledge </pre>
 		<pre>	and <span class="fmt19">\textit</span>{free will}. Experiments involving thoughtful actions can be used to differentiate a machine from human. Computers cannot spawn a <span class="fmt19">\textit</span>{thought-process} like humans. </pre>
-		<pre>	<span class="fmt20">\paragraph</span>{<span class="fmt57">Keywords</span>} <span class="fmt19">\textit</span>{artificial intelligence, consciousness, free will, <span class="fmt38">intentionality</span>, neural network, thought-process} </pre>
+		<pre>	<span class="fmt20">\paragraph</span>{<span class="fmt57">Keywords</span>} <span class="fmt19">\textit</span>{artificial intelligence, consciousness, free will, <span class="fmt38">intentionality</span>, thought-process} </pre>
 		<pre>	<span class="fmt20">\end{</span><span class="fmt20"><span class="fmt49">abstract</span></span><span class="fmt20">}</span> </pre>
-		<pre>	 </pre>
-		<pre>	<span class="fmt20">\section</span>{<span class="fmt57">Any</span><span class="fmt57"> </span><span class="fmt57">form</span><span class="fmt57"> </span><span class="fmt57">of</span><span class="fmt57"> </span><span class="fmt57">computation</span><span class="fmt57"> </span><span class="fmt57">is</span><span class="fmt57"> </span><span class="fmt57">mechanical</span><span class="fmt57"> </span><span class="fmt57">and</span><span class="fmt57"> </span><span class="fmt57">doesn't</span><span class="fmt57"> </span><span class="fmt57">need</span><span class="fmt57"> </span><span class="fmt57">thinking</span>} </pre>
-		<pre>	<span class="fmt20">\paragraph</span>{} </pre>
-		<pre>	<span class="fmt19">\textit</span>{If computers can think then what qualities would they express or possess?} </pre>
-		<pre>	<span class="fmt20">\paragraph</span>{}They would converge to a decision based on experiences and presuppositions. There would be a bias </pre>
-		<pre>	in its choices for rationality may not always be an outcome. </pre>
-		<pre>	<span class="fmt20">\paragraph</span>{} </pre>
-		<pre>	<span class="fmt19">\textit</span>{What is thinking, where does it originate and how does it perpetuate?} </pre>
-		<pre>	<span class="fmt20">\paragraph</span>{} </pre>
-		<pre>	Thought as a random occurrence in our mind would have a more simpler circuitry for computers. Can they </pre>
-		<pre>	rewire their thoughts by manipulating the programs to decide and make choices through their own <span class="fmt19">\textit</span>{free will}? This process may not have a finite number of steps. This discussion leads to self awareness and most importantly <span class="fmt19">\textit</span>{consciousness}. <span class="fmt39">Consciousness</span> in simpler terms means self-awareness. The computers becoming self-aware of its existence cannot happen unless programmed to do so. <span class="fmt39">To</span> program this, a programmer would have to define cases as to what constitutes consciousness and specify whey can we arrive at a result to indicate that a being <span class="fmt19">\textit</span>{is} conscious. This may not be an exhaustive list and hence a futile attempt in making computers <span class="fmt19">\textit</span>{aware}. </pre>
-		<pre>	<span class="fmt20">\paragraph</span>{} </pre>
-		<pre>	<span class="fmt19">\textit</span>{What is consciousness and how are thoughts related to it?} </pre>
-		<pre>	<span class="fmt20">\paragraph</span>{} </pre>
-		<pre>	When we say that a computer can think and take actions, we say that it does with minimal programming or human </pre>
-		<pre>	intervention. It can sense the surroundings through its sensors, interpret the physical quantities and formulate </pre>
-		<pre>	actions based on experience. </pre>
-		<pre>	<span class="fmt20">\paragraph</span>{} </pre>
-		<pre>	<span class="fmt19">\textit</span>{What transforms a layman machine into a thoughtful <span class="fmt40">machine</span>?} </pre>
-		<pre>	<span class="fmt20">\paragraph</span>{} </pre>
-		<pre>	An example that could be thought here is of a lawn mower. It cuts down grass to keep a garden tidy. So, a  </pre>
-		<pre>	lawn mower operated by a gardener would just cut down whatever it can get in its way - insects, grass, weed, flowers, </pre>
-		<pre>	anything and everything. The onus is on the gardener to control its movement and how much time it spends at a particular </pre>
-		<pre>	location. <span class="fmt39">A</span> further advancement to this machine is - whether it can operate in a certain area of action without gardener's </pre>
-		<pre>	involvement. The <span class="fmt39">gardener's</span> task is only to fix the boundaries for <span class="fmt39">the</span> mower: a geometric 2D area for the mower to function. </pre>
-		<pre>	The mower is now capable of measuring distance from its starting point and gauge the area of operation. Also, the gardener may </pre>
-		<pre>	fix operational hours and just let it be. This mower now operates under certain program but still cannot make decisions on which </pre>
-		<pre>	grass to cut, whether to skip any earthworms and mow parts depending on a optimal path. The mower with an autonomous computer </pre>
-		<pre>	that could think, would have to think like a gardener. The <span class="fmt39">gardener</span> senses environment around him and ventures mowing based on external </pre>
-		<pre>	factors such as weather and soil conditions. The machine would have to rewire and register memories of new events and pictures of the </pre>
-		<pre>	vegetation around it. <span class="fmt39">It</span> needs to think and compute surroundings; to not get in contact with any insect or human. What happens when unknown </pre>
-		<pre>	conditions in environment affects the machine? Would it know when to stop and restart? Can it make a decision on its own? Can machine </pre>
-		<pre>	understand and allocate for its own survival and longevity? Can a machine consider itself as a living being and take action to  </pre>
-		<pre>	nurture <span class="fmt40">itself</span> and avoid conflict with nature for its survival? The neural network of a machine and its dynamic wiring to make a choice </pre>
-		<pre>	or action depends on this process of thinking known as a <span class="fmt19">\textit</span>{thought-process}. It is the key to any problem solving - by using one's </pre>
-		<pre>	experience to pave way for newer solutions. Only by past solution to similar problems can humans tend to innovate on solving existing ones. </pre>
-		<pre>	Moreover, after finding a solution how can machine evaluate and reassess for its correctness without a verification model designed autonomously? </pre>
-		<pre>	<span class="fmt20">\section</span>{<span class="fmt57">Turing</span><span class="fmt57"> </span><span class="fmt57">test</span><span class="fmt57"> </span><span class="fmt57">and</span><span class="fmt57"> </span><span class="fmt57">its</span><span class="fmt57"> </span><span class="fmt57">effectiveness</span>} </pre>
-		<pre>	<span class="fmt20">\paragraph</span>{} </pre>
-		<pre>	<span class="fmt19">\textit</span>{Is the Turing test<span class="fmt19">\cite</span>{<span class="fmt53">turing50</span>} meaningful and valid?} </pre>
-		<pre>	<span class="fmt20">\paragraph</span>{} </pre>
-		<pre>	<span class="fmt40">Turing</span> suggested that if a computer and <span class="fmt39">a</span> human being were hidden behind a screen, and another </pre>
-		<pre>	human being were given the task of interrogating each <span class="fmt39">of</span> them, it would be reasonable to conclude that the computer was conscious if the interrogator could not distinguish it </pre>
-		<pre>	from the human being. There have been many variations of the Turing test proposed, some by <span class="fmt40">Turing</span> himself, and there are annual contests based on <span class="fmt40">Turing</span> test. Thus far, no computer has </pre>
-		<pre>	passed the <span class="fmt40">Turing</span> test (by general consensus), although some have come close. Several plausible characteristics have been proposed — free will, restricted access (only the thinker experiences his thoughts), incorrigibility (only the <span class="fmt40">thinker</span> knows with certainty the content of his thought), <span class="fmt38">qualia</span> (raw sensory experience), etc. </pre>
-		<pre>		<span class="fmt20">\begin{</span><span class="fmt20"><span class="fmt49">figure</span></span><span class="fmt20">}</span> </pre>
+	<pre>	 </pre>
+	<pre>	<span class="fmt20">\section</span>{<span class="fmt57">Any</span><span class="fmt57"> </span><span class="fmt57">form</span><span class="fmt57"> </span><span class="fmt57">of</span><span class="fmt57"> </span><span class="fmt57">computation</span><span class="fmt57"> </span><span class="fmt57">is</span><span class="fmt57"> </span><span class="fmt57">mechanical</span><span class="fmt57"> </span><span class="fmt57">and</span><span class="fmt57"> </span><span class="fmt57">doesn't</span><span class="fmt57"> </span><span class="fmt57">need</span><span class="fmt57"> </span><span class="fmt57">thinking</span>} </pre>
+	<pre>	<span class="fmt20">\paragraph</span>{} </pre>
+	<pre>	<span class="fmt19">\textit</span>{If computers can think, then what qualities would they express or possess?} </pre>
+	<pre>	<span class="fmt20">\paragraph</span>{}They would converge to a decision based on experiences and presuppositions. There would be a bias </pre>
+	<pre>	in its choices for rationality may not always be an outcome. </pre>
+	<pre>	<span class="fmt20">\paragraph</span>{} </pre>
+	<pre>	<span class="fmt19">\textit</span>{What is thinking, where does it originate, and how does it perpetuate?} </pre>
+	<pre>	<span class="fmt20">\paragraph</span>{} </pre>
+	<pre>	Thought as a random occurrence in our mind would have a more simpler circuitry for computers. Can they </pre>
+	<pre>	rewire their thoughts by manipulating the programs to decide and make choices through their own <span class="fmt19">\textit</span>{free will}? This process may not have a finite number of steps. This discussion leads to self awareness and most importantly <span class="fmt19">\textit</span>{consciousness}. <span class="fmt39">Consciousness</span> in simpler terms means self awareness. The computers becoming self aware of its existence cannot happen unless programmed to do so. <span class="fmt39">To</span> program this, a programmer would have to define cases as to what constitutes consciousness and specify when can computers arrive at a result to indicate that it is conscious. This may not be an exhaustive list and hence a futile attempt in making computers <span class="fmt19">\textit</span>{aware}. </pre>
+	<pre>	<span class="fmt20">\paragraph</span>{} </pre>
+	<pre>	<span class="fmt19">\textit</span>{What is consciousness and how are thoughts related to it?} </pre>
+	<pre>	<span class="fmt20">\paragraph</span>{} </pre>
+	<pre>	When we say that a computer can think and take actions, we say that it does with minimal programming or human </pre>
+	<pre>	intervention. It can sense the surroundings through its sensors, interpret the physical quantities and formulate </pre>
+	<pre>	actions based on experience. </pre>
+	<pre>	<span class="fmt20">\paragraph</span>{} </pre>
+	<pre>	<span class="fmt19">\textit</span>{What makes a computer thoughtful?} </pre>
+	<pre>	<span class="fmt20">\paragraph</span>{} </pre>
+	<pre>	An example that could be thought here is of a lawn mower. It cuts down grass to keep a garden tidy. So, a  </pre>
+	<pre>	lawn mower operated by a gardener would just cut down whatever it can get in its way - insects, grass, weed, flowers, </pre>
+	<pre>	anything and everything. The onus is on the gardener to control its movement and how much time it spends at a particular </pre>
+	<pre>	location. <span class="fmt39">A</span> further advancement to this machine is - whether it can operate in a certain area of action without gardener's </pre>
+	<pre>	involvement. The <span class="fmt39">gardener's</span> task is only to fix the boundaries for <span class="fmt39">the</span> mower to operate. </pre>
+	<pre>	The mower is now capable of measuring distance from its starting point and gauge the area of operation. Also, the gardener may </pre>
+	<pre>	fix operational hours and just let it be. This mower now operates under certain program but still cannot make decisions on which </pre>
+	<pre>	grass to cut, whether to skip any earthworms and mow parts depending on a optimal path. The mower with an autonomous computer </pre>
+	<pre>	that could think, would have to think like a gardener. The <span class="fmt39">gardener</span> senses environment around him and ventures mowing based on external </pre>
+	<pre>	factors such as weather and soil conditions. The machine would have to rewire and register memories of new events and pictures of the </pre>
+	<pre>	vegetation around it. <span class="fmt39">It</span> needs to think and compute surroundings; to not get in contact with any insect or human. What happens when unknown </pre>
+	<pre>	conditions in environment affects the machine? Would it know when to stop and restart? Can it make a decision on its own? Can machine </pre>
+	<pre>	understand and allocate for its own survival and longevity? Can a machine consider itself as a living being and take action to  </pre>
+	<pre>	nurture <span class="fmt40">itself</span> and avoid conflict with nature for its survival? The neural network of a machine and its dynamic wiring to make a choice </pre>
+	<pre>	or action depends on this process of thinking known as a <span class="fmt19">\textit</span>{thought-process}. It is the key to any problem solving - by using one's </pre>
+	<pre>	experience to pave way for newer solutions. Only by past solution to similar problems can humans tend to innovate on solving existing ones. </pre>
+	<pre>	Moreover, after finding a solution how can machine evaluate and reassess for its correctness without a verification model designed autonomously? </pre>
+	<pre>	<span class="fmt20">\section</span>{<span class="fmt57">Turing</span><span class="fmt57"> </span><span class="fmt57">test</span><span class="fmt57"> </span><span class="fmt57">and</span><span class="fmt57"> </span><span class="fmt57">its</span><span class="fmt57"> </span><span class="fmt57">effectiveness</span>} </pre>
+	<pre>	<span class="fmt20">\paragraph</span>{} </pre>
+	<pre>	<span class="fmt19">\textit</span>{Is the Turing test<span class="fmt19">\cite</span>{<span class="fmt53">turing50</span>} meaningful and valid?} </pre>
+	<pre>	<span class="fmt20">\paragraph</span>{} </pre>
+	<pre>	<span class="fmt40">Turing</span> suggested that if a computer and <span class="fmt39">a</span> human being were hidden behind a screen, and another </pre>
+	<pre>	human being were given the task of interrogating each <span class="fmt39">of</span> them, it would be reasonable to conclude that the computer was conscious if the interrogator could not distinguish it </pre>
+	<pre>	from the human being (Figure 1). There have been many variations of the Turing test proposed, some by <span class="fmt40">Turing</span> himself, and there are annual contests based on <span class="fmt40">Turing</span> test. Thus far, no computer has </pre>
+	<pre>	passed the <span class="fmt40">Turing</span> test (by general consensus), although some have come close. Several plausible characteristics have been proposed — free will, restricted access (only the thinker experiences his thoughts), incorrigibility (only the <span class="fmt40">thinker</span> knows with certainty the content of his thought), <span class="fmt38">qualia</span> (raw sensory experience), etc. </pre>
+	<pre>		<span class="fmt20">\begin{</span><span class="fmt20"><span class="fmt49">figure</span></span><span class="fmt20">}</span> </pre>
 		<pre>			<span class="fmt19">\centering</span> </pre>
 		<pre>			<span class="fmt19">\includegraphics</span>[height=5cm]{Turing_Test} </pre>
 		<pre>				<span class="fmt19">\caption</span>{The ``standard interpretation" of the Turing Test, in which player C, the interrogator, is given the task of trying to determine which player - A or B - is a computer and which is a human. The interrogator is limited to using the responses to written questions <span class="fmt39">to</span> make the determination. Image adapted from <span class="fmt38">Saygin</span>, 2000<span class="fmt19">\cite</span>{<span class="fmt53">saygin00</span>}} </pre>
 		<pre>		<span class="fmt20">\end{</span><span class="fmt20"><span class="fmt49">figure</span></span><span class="fmt20">}</span> </pre>
-		<pre>		 </pre>
-		<pre>	<span class="fmt20">\section</span>{<span class="fmt57"><span class="fmt38">Intentionality</span></span><span class="fmt57"> </span><span class="fmt57">behind</span><span class="fmt57"> </span><span class="fmt57">computation</span>} </pre>
-		<pre>	<span class="fmt20">\paragraph</span>{} </pre>
-		<pre>	The classic argument that computation inherently lacks <span class="fmt38">intentionality</span> (meaning) can be inferred from <span class="fmt38">Searle's</span> Chinese Room analogy <span class="fmt19">\cite</span>{<span class="fmt53">searle80</span>}. <span class="fmt38">Intentionality</span> is a primary characteristic of human mind. The actions are driven by it and thoughts are the fuel. In case of a computer, it manifests the <span class="fmt38">intentionality</span> of its programmer. The <span class="fmt39">programmer</span> could be another program recursively. Yet, the base <span class="fmt40">program</span> would be the one of a human programmer. So it derives the <span class="fmt38">intentionality</span> from a human in principle. <span class="fmt38">Searle</span> concludes through his analogy that computation has no intrinsic <span class="fmt38">intentionality</span>, but only secondary <span class="fmt38"><span class="fmt40">intentionality</span></span> imparted by programmers. Computation is not <span class="fmt19">\textit</span>{thinking}, but a mechanical process.  </pre>
-		<pre>	<span class="fmt20">\begin{</span><span class="fmt20"><span class="fmt49">thebibliography</span></span><span class="fmt20">}</span>{9} </pre>
+	<pre>		 </pre>
+	<pre>	<span class="fmt20">\section</span>{<span class="fmt57"><span class="fmt38">Intentionality</span></span><span class="fmt57"> </span><span class="fmt57">behind</span><span class="fmt57"> </span><span class="fmt57">computation</span>} </pre>
+	<pre>	<span class="fmt20">\paragraph</span>{} </pre>
+	<pre>	The classic argument that computation inherently lacks <span class="fmt38">intentionality</span> (meaning) can be inferred from <span class="fmt38">Searle's</span> Chinese Room analogy <span class="fmt19">\cite</span>{<span class="fmt53">searle80</span>}. <span class="fmt38">Intentionality</span> is a primary characteristic of human mind. The actions are driven by it and thoughts are the fuel. In case of a computer, it manifests the <span class="fmt38">intentionality</span> of its programmer. The <span class="fmt39">programmer</span> could be another program recursively. Yet, the base <span class="fmt40">program</span> would be the one of a human programmer. So it derives the <span class="fmt38">intentionality</span> from a human in principle. <span class="fmt38">Searle</span> concludes through his analogy that computation has no intrinsic <span class="fmt38">intentionality</span>, but only secondary <span class="fmt38"><span class="fmt40">intentionality</span></span> imparted by programmers. Computation is not <span class="fmt19">\textit</span>{thinking}, but a mechanical process.  </pre>
+	<pre>	<span class="fmt20">\begin{</span><span class="fmt20"><span class="fmt49">thebibliography</span></span><span class="fmt20">}</span>{9} </pre>
 		<pre>		 </pre>
 		<pre>		<span class="fmt19">\bibitem</span>{turing50} </pre>
 		<pre>		 A.M Turing, </pre>
@@ -185,4 +184,4 @@
 		<pre>		10 (4): 463-518 </pre>
 		<pre>		 </pre>
 		<pre>	<span class="fmt20">\end{</span><span class="fmt20"><span class="fmt49">thebibliography</span></span><span class="fmt20">}</span> </pre>
-		<pre>	<span class="fmt20">\end{</span><span class="fmt20"><span class="fmt49">document</span></span><span class="fmt20">}</span> </pre></body></html>
+	<pre>	<span class="fmt20">\end{</span><span class="fmt20"><span class="fmt49">document</span></span><span class="fmt20">}</span> </pre></body></html>
